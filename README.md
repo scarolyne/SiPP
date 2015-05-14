@@ -1,11 +1,11 @@
 # SiPP
-Sistema para Planejamento de Projetos (Project Management System)
+Sistema para Planejamento de Projetos (System for Project Planning)
 
 <em>Basic information about the software</em>
 
 Abstract
 
-The demands for technology and quality systems are increasing, so it is necessary trained professionals to manage the planning of these softwares and ensure that they have quality and meet customer expectations. In order to meet this demand, we developed the SIPP - System for Project Planning - which aims to provide, as well as a tool for planning, a way to practice project management techniques and reinforce the concepts by means of tutorials, which makes it usable for educational purposes as well. Key features for the SIPP are: WBS, Gantt and generation of  PDF documents compiling all project data.
+The demands for technology and quality systems are increasing, so it is necessary trained professionals to manage the planning of these softwares and ensure that they have quality and meet customer expectations. In order to meet this demand, we developed the SiPP - System for Project Planning <em>(Sistema para Planejamento de Projetos)</em> - which aims to provide, as well as a tool for planning, a way to practice project management techniques and reinforce the concepts by means of tutorials, which makes it usable for educational purposes as well. Key features for the SIPP are: WBS, Gantt and generation of  PDF documents compiling all project data.
 
 Resumo
 
