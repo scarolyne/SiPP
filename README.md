@@ -1,7 +1,5 @@
 # SiPP
-Sistema para Planejamento de Projetos (System for Project Planning)
-
-<em>Basic information about the software</em>
+<strong>Sistema para Planejamento de Projetos (System for Project Planning)</strong>
 
 <strong>Abstract</strong>
 
