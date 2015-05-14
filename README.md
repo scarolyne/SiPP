@@ -10,3 +10,5 @@ The demands for technology and quality systems are increasing, so it is necessar
 Resumo
 
 Com o aumento crescente das demandas por tecnologia e sistemas de qualidade, cresce também a necessidade de profissionais capacitados para gerenciar o planejamento destes softwares e garantir que eles tenham qualidade e atendam as expectativas dos clientes.Com o intuito de atender essa demanda, foi desenvolvido o SiPP – Sistema para Planejamento de Projetos – que visa proporcionar, além de um ferramenta para planejamento, uma maneira para praticar as técnicas de Gerenciamento de Projetos e reforçar os conceitos por meio de tutoriais, o que possibilita o seu uso também para fins educacionais. Entre as principais funcionalidades referentes ao SiPP estão: EAP, Gantt e geração de documentos PDF compilando todos os dados do projeto.
+<br><hr>
+<em>For more information, you can access http://dspace.c3sl.ufpr.br:8080/dspace/handle/1884/36976 and see the full documentation.</em>
