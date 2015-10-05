@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d2f4c63-c61f-4964-a0bc-d2070992c908">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1107"/>
+	<style name="style1"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#73E6E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#CFE6E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F3F8F8"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Aprovadores" uuid="05e296e5-44f8-4477-86f1-9a5db68f5101">
+		<queryString>
+			<![CDATA[SELECT NOME FROM APROVACAO]]>
+		</queryString>
+		<field name="NOME" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<group name="NOME">
+			<groupExpression><![CDATA[$F{NOME}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT A.DESCRICAO_ESCOPO, A.CRITERIOS_ACEITACAO, A.EXCLUSAO, A.RESTRICAO, A.PREMISSA,
+B.INTRODUCAO, B.REPONSABILIDADE,B.NECESSIDADE_BASICA, B.DESCRICAO_PRODUTO,B.ORCAMENTO_INICIAL, B.NECESSIDADE_SUPORTE, B.CONTROLE_INFORMACAO,  A.PROJETO_ID, B.ID
+
+FROM DEFINICAO_ESCOPO A
+INNER JOIN TERMO_ABERTURA B ON A.PROJETO_ID =B.PROJETO_ID]]>
+	</queryString>
+	<field name="DESCRICAO_ESCOPO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CRITERIOS_ACEITACAO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EXCLUSAO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RESTRICAO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PREMISSA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="INTRODUCAO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="REPONSABILIDADE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NECESSIDADE_BASICA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DESCRICAO_PRODUTO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ORCAMENTO_INICIAL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NECESSIDADE_SUPORTE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CONTROLE_INFORMACAO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PROJETO_ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="1" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="751" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="170" width="555" height="72" forecolor="#CCCCCC" uuid="00b1b7e0-5eb4-4a0c-9ba9-9ee1bb8d6600"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="62" width="100" height="20" uuid="8f1f5abc-4d8f-408d-bbd9-0237580fc708"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Introdução]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="150" width="139" height="20" uuid="a5bc9cf2-46c9-450b-844d-b07c9855b7b4"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Responsabilidades]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="170" width="555" height="64" uuid="33f7dff3-7cd8-4108-af2e-980f7cf8ca2f"/>
+				<textFieldExpression><![CDATA[$F{REPONSABILIDADE}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="82" width="555" height="68" forecolor="#CCCCCC" uuid="8fad9e97-3e34-4810-aba5-e281c0dbb338"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="82" width="555" height="68" uuid="9d293bee-a228-4ba5-b43c-13f93aff84ba"/>
+				<textFieldExpression><![CDATA[$F{INTRODUCAO}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="263" width="555" height="68" forecolor="#CCCCCC" uuid="fc8177a8-573b-4168-a28b-4e0bf1532896"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="243" width="160" height="20" uuid="246111b0-b287-47b6-afce-d220fe033120"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Necessidades Básicas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="263" width="555" height="68" uuid="49eef13c-ddba-42d6-a768-5861657be4fd"/>
+				<textFieldExpression><![CDATA[$F{NECESSIDADE_BASICA}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="352" width="555" height="75" forecolor="#CCCCCC" uuid="a79a6c2c-c501-452b-a9d0-34c54159609b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="332" width="160" height="20" uuid="d06e7f74-3d76-4439-b7fd-b89c6a43aaad"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição do Produto]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="352" width="555" height="75" uuid="a2a790fc-467b-4c78-ac6b-cf77f87f742c"/>
+				<textFieldExpression><![CDATA[$F{DESCRICAO_PRODUTO}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="449" width="555" height="70" forecolor="#CCCCCC" uuid="2d0011f5-402f-4304-96b2-b34b20eeb82f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="427" width="175" height="20" uuid="0c62f947-1ac4-44a5-bfe0-69fd644db88f"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Orçamento Inicial]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="449" width="555" height="70" uuid="92f7d294-3a66-4085-85e3-3c6dff3960c6"/>
+				<textFieldExpression><![CDATA[$F{ORCAMENTO_INICIAL}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="540" width="555" height="67" forecolor="#CCCCCC" uuid="0045d8a0-aa8f-4db2-be8c-cec37337f176"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="520" width="175" height="20" uuid="4652ca7c-802d-487f-adbe-34668db9b7af"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Necessidade de Suporte]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="540" width="555" height="67" uuid="0852ded9-db11-49d2-b5b6-ac8224fe7fd8"/>
+				<textFieldExpression><![CDATA[$F{NECESSIDADE_SUPORTE}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="630" width="555" height="62" forecolor="#CCCCCC" uuid="78b1b305-e8fb-4173-b1bc-879489376825"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="610" width="175" height="20" uuid="3198a760-3a87-42aa-8ede-16fcb88a4587"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Controle de Informação]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="630" width="555" height="62" uuid="cfbe80f2-d2c6-45ac-a618-a7bebf89b5ca"/>
+				<textFieldExpression><![CDATA[$F{CONTROLE_INFORMACAO}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band/>
+		<band/>
+		<band/>
+		<band height="654">
+			<rectangle>
+				<reportElement x="2" y="113" width="555" height="76" forecolor="#CCCCCC" uuid="60322403-1b6b-4cd4-8187-79c7cc96696b"/>
+			</rectangle>
+			<textField>
+				<reportElement x="2" y="304" width="555" height="72" uuid="dbce29ca-9811-46ab-a8fe-6ff12e893aac"/>
+				<textFieldExpression><![CDATA[$F{EXCLUSAO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="480" width="100" height="20" uuid="8e80218b-7997-4a90-accf-8754c7f8b23d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Premissas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="113" width="555" height="76" uuid="0b3d6b20-536e-4c7d-9b87-9ea4b1693734"/>
+				<textFieldExpression><![CDATA[$F{DESCRICAO_ESCOPO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="209" width="555" height="73" uuid="57812008-c6be-4676-b43d-b934ff971871"/>
+				<textFieldExpression><![CDATA[$F{CRITERIOS_ACEITACAO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="376" width="100" height="20" uuid="0232f752-fe0c-4293-89b8-ba37311021ff"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Restrições]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="2" y="304" width="555" height="72" forecolor="#CCCCCC" uuid="6691af0c-2e2d-4fbf-bc95-684804f387d1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="2" y="396" width="554" height="79" forecolor="#FFFFFF" uuid="45bb96de-5c88-47a4-92d8-ff0c6ef0765d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="2" y="209" width="555" height="73" forecolor="#CCCCCC" uuid="590ed921-fe6d-45f5-ad2a-0536f56bdfb1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="3" y="500" width="554" height="83" forecolor="#CCCCCC" uuid="b4b5152e-43eb-43a0-a053-3ed3a97f5bef"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="3" y="396" width="554" height="84" forecolor="#CCCCCC" uuid="bb7ce779-1e6a-4119-a735-60847e48691b"/>
+			</rectangle>
+			<textField>
+				<reportElement x="3" y="396" width="553" height="84" uuid="cec24051-be37-40f4-9329-1fcde4414ff4"/>
+				<textFieldExpression><![CDATA[$F{RESTRICAO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="500" width="552" height="83" uuid="dda9d161-a5b3-4573-8dc3-844bd954cf1a"/>
+				<textFieldExpression><![CDATA[$F{PREMISSA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="284" width="100" height="20" uuid="ffa72e51-fe6f-41bb-b693-5b3535d72ade"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Exclusões]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="189" width="175" height="20" uuid="85f4e4e4-0271-47fe-9270-e6b7aff260de"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Critérios de Aceitação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="93" width="175" height="20" uuid="5b819aeb-8d82-473c-b309-9ea462c4d56e"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição de Escopo]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

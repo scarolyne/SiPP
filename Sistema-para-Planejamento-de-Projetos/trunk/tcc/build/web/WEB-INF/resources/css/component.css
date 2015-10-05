@@ -1,0 +1,433 @@
+html, body, .container-projeto {
+    height: 100%;
+    width: 100%;
+}
+
+.scroller {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.scroller,
+.scroller-inner {
+    position: relative;
+}
+
+.container-projeto {
+    background: #333;
+    position: relative; 
+    overflow: hidden;
+}
+
+.menu-trigger {
+    position: relative;
+    padding-left: 60px;
+    font-size: 0.9em;
+}
+
+.menu-trigger:before {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 40px;
+    height: 6px;
+    background: #FFF;
+    box-shadow: 0 6px #34495e, 0 12px #FFF, 0 18px #34495e, 0 24px #FFF;
+    content: '';
+}
+
+.mp-pusher {
+    position: relative;
+    left: 0;
+    height: 100%;
+}
+
+.mp-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 300px;
+    height: 100%;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+
+.mp-level {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #333 url('../img/texture.png');
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+
+/* overlays for pusher and for level that gets covered */
+.mp-pusher::after,
+.mp-level::after,
+.mp-level::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    content: '';
+    opacity: 0;
+}
+
+.mp-pusher::after,
+.mp-level::after {
+    background: rgba(0,0,0,0.3);
+    -webkit-transition: opacity 0.3s, width 0.1s 0.3s, height 0.1s 0.3s;
+    -moz-transition: opacity 0.3s, width 0.1s 0.3s, height 0.1s 0.3s;
+    transition: opacity 0.3s, width 0.1s 0.3s, height 0.1s 0.3s;
+}
+
+.mp-level::after {
+    z-index: -1;
+}
+
+.mp-pusher.mp-pushed::after,
+.mp-level.mp-level-overlay::after {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.mp-level.mp-level-overlay {
+    cursor: pointer;
+}
+
+.mp-level.mp-level-overlay.mp-level::before {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    opacity: 1;
+}
+
+.mp-pusher,
+.mp-level {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+/* overlap */
+.mp-overlap .mp-level.mp-level-open {
+    box-shadow: 1px 0 2px rgba(0,0,0,0.2);
+    -webkit-transform: translate3d(-40px, 0, 0);
+    -moz-transform: translate3d(-40px, 0, 0);
+    transform: translate3d(-40px, 0, 0);
+}
+
+/* First level */
+.mp-menu > .mp-level,
+.mp-menu > .mp-level.mp-level-open,
+.mp-menu.mp-overlap > .mp-level,
+.mp-menu.mp-overlap > .mp-level.mp-level-open {
+    box-shadow: none;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* cover */
+.mp-cover .mp-level.mp-level-open {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.mp-cover .mp-level.mp-level-open > ul > li > .mp-level:not(.mp-level-open) {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+
+/* content style */
+.mp-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mp-menu h2 {
+    color: #f0f0f0;
+    font-family: 'Yanone Kaffeesatz';
+    font-size: 2em;
+    font-weight: 300;
+    margin: 0;
+    padding: 0.5em;
+}
+
+.mp-menu.mp-overlap h2::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 8px;
+    font-size: 75%;
+    line-height: 1.8;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.1s 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.1s 0.3s;
+    transition: opacity 0.3s, transform 0.1s 0.3s;
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.mp-menu.mp-cover h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 2.6em;
+}
+
+.mp-overlap .mp-level.mp-level-overlay > h2::before {
+    opacity: 1;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.mp-menu ul li > a {
+    font-family: 'Lato', sans-serif;
+    display: block;
+    padding: 0.7em 1em 0.7em 0.8em;
+    outline: none;
+    box-shadow: inset 0 -1px rgba(0,0,0,0.2);
+    text-shadow: 0 0 1px rgba(255,255,255,0.1);
+    font-size: 14px;
+    -webkit-transition: background 0.3s, box-shadow 0.3s;
+    -moz-transition: background 0.3s, box-shadow 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.mp-menu ul li::before {
+    position: absolute;
+    left: 10px;
+    z-index: -1;
+    color: rgba(0,0,0,0.2);
+    line-height: 3.5;
+}
+
+.mp-level > ul > li:first-child > a {
+    box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);
+}
+
+.mp-menu ul li a:hover,
+.mp-level > ul > li:first-child > a:hover {
+    background: rgba(0,0,0,0.2);
+    box-shadow: inset 0 -1px rgba(0,0,0,0);
+}
+
+.mp-menu .mp-level.mp-level-overlay > ul > li > a,
+.mp-level.mp-level-overlay > ul > li:first-child > a {
+    box-shadow: inset 0 -1px rgba(0,0,0,0);
+}
+
+.mp-level > ul > li:first-child > a:hover,
+.mp-level.mp-level-overlay > ul > li:first-child > a {
+    box-shadow: inset 0 -1px rgba(0,0,0,0), inset 0 1px rgba(0,0,0,0);
+} 
+
+.mp-back {
+    background: rgba(0,0,0,0.1);
+    outline: none;
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    display: block;
+    font-size: 0.8em;
+    padding: 1em;
+    position: relative;
+    box-shadow: inset 0 1px rgba(0,0,0,0.1);
+    -webkit-transition: background 0.3s;
+    -moz-transition: background 0.3s;
+    transition: background 0.3s;
+}
+
+.mp-back::after {
+    position: absolute;
+    content: "\e037";
+    right: 10px;
+    font-size: 1.3em;
+    color: rgba(0,0,0,0.3);
+}
+
+.mp-menu .mp-level.mp-level-overlay > .mp-back,
+.mp-menu .mp-level.mp-level-overlay > .mp-back::after {
+    background: transparent;
+    box-shadow: none;
+    color: transparent;
+}
+
+/* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
+/* We'll show the first level only */
+.no-csstransforms3d .mp-pusher,
+.no-js .mp-pusher {
+    padding-left: 300px;
+}
+
+.no-csstransforms3d .mp-menu .mp-level,
+.no-js .mp-menu .mp-level {
+    display: none;
+}
+
+.no-csstransforms3d .mp-menu > .mp-level,
+.no-js .mp-menu > .mp-level {
+    display: block;
+}
+
+.mp-level a {
+    color: #FFF;
+}
+
+.mp-level h1 {
+    color: #FFF;
+}
+
+.tutorial {
+    background: #F0F0F0 url('../img/texture.png');
+    border-radius: 4px;
+    height: 98.7%;
+    padding: 5px;
+}
+
+.tutorial-content {
+    border: 2px dotted #079E44;
+    height: 89.5%;
+    padding: 10px;
+}
+
+.display-dev {
+    background: #333;
+    height: 98.7%;
+    padding: 5px;
+}
+
+.display-dev-content {
+    background: #FFF;
+    border-radius: 4px;
+    height: 97.3%;
+    padding: 10px;
+}
+
+.guider {
+    background: #2F5770;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #000;
+    padding: 5px;
+    position: absolute;
+    width: 300px;
+    z-index: 9999;
+}
+
+.guider-border {
+    border: 2px dotted #FFF;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.guider-set {
+    border-right: 15px solid #2F5770;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    margin-right: 10px;
+    position: absolute;
+    z-index: 9999;
+}
+
+/*.guider-set::before {
+  content: "";
+  display: inline-block;
+  width: 0; 
+  height: 0; 
+  position: absolute;
+
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent; 
+  border-right: 20px solid #FFF; 
+}*/
+
+.guider-header {
+   font-family: 'Arial';
+   color: #FFF;
+   font-size: 22px;
+}
+
+.guider-content {
+    font-family: 'Georgia';
+    font-size: 14px;
+    color: #8A9DAB;
+    text-align: justify;
+}
+
+.guider-buttons {
+    text-align: center;
+}
+
+.guider-buttons .submit {
+    border-radius: 5px;
+}
+
+.guider-buttons .submit:hover {
+    background: #7CA6BA;
+}
+
+
+.row-fluid {
+    height: 100%;
+    //padding: 5px;
+   // margin-left: 0;
+}
+
+.row-fluid [class*="span"] {
+    //margin-left: 0;
+}
+
+/*.row-fluid .span8 {
+    width: 68.371%;
+}*/
+
+.span8 {
+    height: 100%;
+    //margin: 0;
+}
+
+.span4 {
+    height: 100%;
+    //margin: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.block {
+    float: left;
+}
+
+@media screen and (max-width: 69em) {
+    .block {
+        float: none;
+        width: 100% !important;
+    }
+}

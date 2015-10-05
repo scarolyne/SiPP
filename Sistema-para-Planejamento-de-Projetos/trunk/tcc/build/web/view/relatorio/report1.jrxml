@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="779c9fe7-c14e-4ba2-9288-4295d4b9dc88">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="119"/>
+	<parameter name="idProjeto" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT A.DESCRICAO_ESCOPO, A.CRITERIOS_ACEITACAO, A.EXCLUSAO, A.RESTRICAO, A.PREMISSA,
+B.INTRODUCAO, B.REPONSABILIDADE,B.NECESSIDADE_BASICA, B.DESCRICAO_PRODUTO,B.ORCAMENTO_INICIAL, B.NECESSIDADE_SUPORTE, B.CONTROLE_INFORMACAO,  A.PROJETO_ID, B.ID, C.TITULO
+
+FROM DEFINICAO_ESCOPO A
+INNER JOIN TERMO_ABERTURA B ON A.PROJETO_ID =B.PROJETO_ID
+INNER JOIN PROJETO C ON C.ID = A.PROJETO_ID where c.id = $P{idProjeto} ]]>
+	</queryString>
+	<field name="DESCRICAO_ESCOPO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CRITERIOS_ACEITACAO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EXCLUSAO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RESTRICAO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PREMISSA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="INTRODUCAO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="REPONSABILIDADE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NECESSIDADE_BASICA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DESCRICAO_PRODUTO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ORCAMENTO_INICIAL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NECESSIDADE_SUPORTE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CONTROLE_INFORMACAO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PROJETO_ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TITULO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="16" y="25" width="61" height="28" uuid="0912ac03-d300-4d8f-bdcf-5a640f93ea51"/>
+				<textElement>
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Projeto]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="77" y="25" width="100" height="20" uuid="02735e32-fa92-463f-b96e-f44d9ae78b19"/>
+				<textFieldExpression><![CDATA[$F{TITULO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="363" y="15" width="100" height="20" uuid="462383ba-aa37-4835-b78d-020534c01054"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="203" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="4" width="100" height="20" uuid="db5d2906-6744-494d-ae2a-caea6f274980"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Introdução]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="24" width="530" height="68" uuid="f9c88061-3be3-4213-9a08-d0b81a23d774"/>
+				<textFieldExpression><![CDATA[$F{INTRODUCAO}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="24" width="530" height="68" forecolor="#CCCCCC" uuid="d6a93081-beb5-4278-b399-a2e34f612773"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="119" width="530" height="72" forecolor="#CCCCCC" uuid="1ae5534b-3789-4344-b9d7-2e5cc103fb89"/>
+			</rectangle>
+			<textField>
+				<reportElement x="-1" y="127" width="530" height="64" uuid="b184a7e6-d062-4e3f-857b-a2440b525ddc"/>
+				<textFieldExpression><![CDATA[$F{REPONSABILIDADE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="99" width="139" height="20" uuid="c441dfb9-6009-4364-8e4f-cdf1544d41dd"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Responsabilidades]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
